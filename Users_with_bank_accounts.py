@@ -37,20 +37,25 @@ class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account = BankAccount()
-
-    def make_deposit(self, amount):
-        self.account.balance += amount
+        self.savingsAccount = BankAccount(.01, 500)
+        self.checkingAccount = BankAccount(0 , 1000)
+    def make_deposit_savings(self, amount):
+        self.savingsAccount.balance += amount
         return(self)
-
-    def make_withdrawl(self, amount):
-        self.account.balance -= amount
+    def make_deposit_checking(self, amount):
+        self.checkingAccount.balance += amount
+        return(self)
+    def make_withdrawl_checking(self, amount):
+        self.checkingAccount.balance -= amount
+        return(self)
+    def make_withdrawl_savings(self, amount):
+        self.savingsAccount.balance -= amount
         return(self)
 
     def display_balance(self):
-        print(self.account.balance)
+        print("savings account balance: " , self.savingsAccount.balance)
+        print("checking account balance: " , self.checkingAccount.balance)
         return(self)
-        # why do I need a return self?
 
     # def transfer_money(self, amount):
     #     self.make_withdrawl(amount)
@@ -60,4 +65,4 @@ class User:
         
 
 Joel = User("Joel", "joel@codingdojo.com")
-Joel.make_deposit(100).make_withdrawl(50).display_balance()
+Joel.make_deposit_savings(100).make_withdrawl_savings(50).display_balance()
