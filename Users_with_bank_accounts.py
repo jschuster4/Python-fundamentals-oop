@@ -53,8 +53,8 @@ class User:
         return(self)
 
     def display_balance(self):
-        print("savings account balance: " , self.savingsAccount.balance)
-        print("checking account balance: " , self.checkingAccount.balance)
+        print(self.name + "'s" , "savings account balance: " , self.savingsAccount.balance)
+        print(self.name + "'s" , "checking account balance: " , self.checkingAccount.balance)
         return(self)
 
     # def transfer_money(self, amount):
